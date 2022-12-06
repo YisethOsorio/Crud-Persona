@@ -24,10 +24,17 @@ export class PersonService {
     return this.http.post(endpoint, body);
   }
 
-  /**Update categorie */
+  /**Update person */
 
   updatePersons(body: any, idpersona: any){
     const endpoint = `${base_url}/persons/${idpersona}`;
     return this.http.put(endpoint, body);
   }
+
+  /**Delete person */
+  detelePersons(idpersona: any){
+    const endpoint = `${base_url}/persons/${idpersona}`;
+    return this.http.delete(endpoint);
+  }
+
 }

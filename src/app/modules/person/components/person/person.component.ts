@@ -1,3 +1,4 @@
+import { ConfirmComponent } from './../../../shared/components/confirm/confirm.component';
 import { MatTableDataSource } from '@angular/material/table';
 import { PersonService } from './../../../shared/services/person.service';
 import { Component, OnInit } from '@angular/core';
@@ -104,7 +105,24 @@ export class PersonComponent implements OnInit {
           }
         });
   }
+  delete(idpersona: any){
+    const dialogRef = this.dialog.open(ConfirmComponent, {
+      data: {idpersona: idpersona },
+      width: '300px',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result == 1) {
+        this.openSnackBar("Persona Eliminada" , "Exitosamente");
+        this.getPersons();
+      } else if (result == 2) {
+        this.openSnackBar("Se produjo un error al eliminar la persona", "Error");
+      }
+    });
+  }
 }
+
+
 
 export interface PersonElement {
   nombre: string;
