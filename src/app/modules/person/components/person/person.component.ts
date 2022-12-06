@@ -25,6 +25,7 @@ export class PersonComponent implements OnInit {
     this.getPersons();
   }
 
+
   displayedColumns: String[] = [
     'idpersona',
     'nombre',
@@ -83,6 +84,25 @@ export class PersonComponent implements OnInit {
       duration: 2000
     })
 
+  }
+
+  edit(idpersona: number,  nombre: string, apellido: string , identificacion:string,
+       estatura: number,peso: number, fechanacimiento: Date, eps: string, salario: bigint){
+        const dialogRef = this.dialog.open(NewPersonComponent, {
+          data: {idpersona: idpersona, nombre: nombre, apellido: apellido, identificacion: identificacion,
+          estatura:estatura, peso: peso, fechanacimiento: fechanacimiento, eps: eps, salario: salario },
+          width: '400px',
+          height: '600px',
+        });
+
+        dialogRef.afterClosed().subscribe((result) => {
+          if (result == 1) {
+            this.openSnackBar("Persona Actualizada" , "Exitosa");
+            this.getPersons();
+          } else if (result == 2) {
+            this.openSnackBar("Se produjo un error al actualizar la persona", "Error");
+          }
+        });
   }
 }
 

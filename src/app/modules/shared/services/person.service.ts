@@ -23,4 +23,11 @@ export class PersonService {
     const endpoint = `${base_url}/persons`;
     return this.http.post(endpoint, body);
   }
+
+  /**Update categorie */
+
+  updatePersons(body: any, idpersona: any){
+    const endpoint = `${base_url}/persons/${idpersona}`;
+    return this.http.put(endpoint, body);
+  }
 }
