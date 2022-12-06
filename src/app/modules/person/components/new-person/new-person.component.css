@@ -1,0 +1,14 @@
+/* mat-form-field {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+} */
+
+.person-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.person-container>* {
+    width: 100%;
+}

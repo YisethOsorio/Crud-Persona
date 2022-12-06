@@ -11,8 +11,16 @@ export class PersonService {
 
   constructor(private http: HttpClient) { }
 
+
+  /**get all persons */
   getPersons(){
     const endpoint = `${base_url}/persons`;
     return this.http.get(endpoint);
+  }
+
+  /**save the persons */
+  savePersons(body: any){
+    const endpoint = `${base_url}/persons`;
+    return this.http.post(endpoint, body);
   }
 }

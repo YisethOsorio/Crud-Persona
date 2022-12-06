@@ -6,10 +6,12 @@ import { CommonModule } from '@angular/common';
 import { PersonComponent } from './components/person/person.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NewPersonComponent } from './components/new-person/new-person.component';
 
 @NgModule({
   declarations: [
-    PersonComponent
+    PersonComponent,
+    NewPersonComponent
   ],
   imports: [
     CommonModule,
